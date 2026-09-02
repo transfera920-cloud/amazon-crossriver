@@ -81,59 +81,84 @@ export const ActivePackSeparationSvg: React.FC<SvgProps> = ({
         <rect width="900" height="500" fill="#080D11" rx="14" stroke="#1E293B" strokeWidth="2" />
 
         {/* River Channel */}
-        <rect x="200" y="0" width="500" height="500" fill="url(#riverWater)" />
+        <rect x="220" y="0" width="460" height="500" fill="url(#riverWater)" />
 
         {/* River Flow Direction Waves and Vectors */}
         <g stroke="#38BDF8" opacity="0.6" strokeWidth="2">
           {/* Main Upstream Marker */}
-          <rect x="360" y="10" width="180" height="28" rx="6" fill="#0F172A" stroke="#38BDF8" strokeWidth="1.2" />
-          <text x="450" y="29" fill="#38BDF8" fontSize="13" fontWeight="bold" textAnchor="middle">
-            ▲ 上游水流 (CURRENT FLOW)
+          <rect x="360" y="8" width="180" height="26" rx="6" fill="#0F172A" stroke="#38BDF8" strokeWidth="1.2" />
+          <text x="450" y="25" fill="#38BDF8" fontSize="12" fontWeight="bold" textAnchor="middle">
+            ▲ 上游水流方向 (UPSTREAM)
           </text>
 
-          {/* Current arrows */}
-          <line x1="300" y1="60" x2="300" y2="130" strokeDasharray="6 4" strokeWidth="2.5" />
-          <polygon points="295,130 305,130 300,142" fill="#38BDF8" />
+          {/* Current arrows with gradient/flow */}
+          <line x1="320" y1="50" x2="320" y2="120" strokeDasharray="6 4" strokeWidth="2.5" />
+          <polygon points="315,120 325,120 320,132" fill="#38BDF8" />
 
-          <line x1="450" y1="60" x2="450" y2="160" strokeDasharray="6 4" strokeWidth="3" />
-          <polygon points="444,160 456,160 450,174" fill="#38BDF8" />
+          <line x1="450" y1="50" x2="450" y2="150" strokeDasharray="6 4" strokeWidth="3" />
+          <polygon points="444,150 456,150 450,164" fill="#38BDF8" />
 
-          <line x1="600" y1="60" x2="600" y2="130" strokeDasharray="6 4" strokeWidth="2.5" />
-          <polygon points="595,130 605,130 600,142" fill="#38BDF8" />
+          <line x1="580" y1="50" x2="580" y2="120" strokeDasharray="6 4" strokeWidth="2.5" />
+          <polygon points="575,120 585,120 580,132" fill="#38BDF8" />
 
           {/* Downstream Marker */}
-          <rect x="360" y="462" width="180" height="28" rx="6" fill="#0F172A" stroke="#EF4444" strokeWidth="1.2" />
-          <text x="450" y="481" fill="#EF4444" fontSize="13" fontWeight="bold" textAnchor="middle">
+          <rect x="360" y="466" width="180" height="26" rx="6" fill="#0F172A" stroke="#EF4444" strokeWidth="1.2" />
+          <text x="450" y="483" fill="#EF4444" fontSize="12" fontWeight="bold" textAnchor="middle">
             ▼ 下游方向 (DOWNSTREAM)
           </text>
         </g>
 
-        {/* Origin Bank (Left) */}
-        <rect x="0" y="0" width="200" height="500" fill="url(#bankGradLeft)" stroke="#2D422F" strokeWidth="2" />
-        <text x="100" y="32" fill="#4ADE80" fontSize="15" fontWeight="bold" textAnchor="middle">
-          出發岸 (ORIGIN BANK)
+        {/* Origin Bank (Left - UPSTREAM HIGHER POSITION) */}
+        <rect x="0" y="0" width="220" height="500" fill="url(#bankGradLeft)" stroke="#2D422F" strokeWidth="2" />
+        
+        {/* Origin Bank Header Badge */}
+        <rect x="15" y="12" width="190" height="42" rx="8" fill="#064E3B" stroke="#10B981" strokeWidth="1.5" />
+        <text x="110" y="30" fill="#4ADE80" fontSize="13" fontWeight="bold" textAnchor="middle">
+          【出發岸】在上游側
+        </text>
+        <text x="110" y="46" fill="#A7F3D0" fontSize="10" textAnchor="middle">
+          (高位主錨點／放繩控制端)
         </text>
 
-        {/* Far Target Bank (Right) */}
-        <rect x="700" y="0" width="200" height="500" fill="url(#bankGradRight)" stroke="#2D422F" strokeWidth="2" />
-        <text x="800" y="32" fill="#4ADE80" fontSize="15" fontWeight="bold" textAnchor="middle">
-          對岸安全區 (FAR BANK)
+        {/* Far Target Bank (Right - DOWNSTREAM LOWER POSITION) */}
+        <rect x="680" y="0" width="220" height="500" fill="url(#bankGradRight)" stroke="#2D422F" strokeWidth="2" />
+        
+        {/* Far Target Bank Header Badge */}
+        <rect x="695" y="12" width="190" height="42" rx="8" fill="#064E3B" stroke="#10B981" strokeWidth="1.5" />
+        <text x="790" y="30" fill="#4ADE80" fontSize="13" fontWeight="bold" textAnchor="middle">
+          【目標對岸】在下游側
+        </text>
+        <text x="790" y="46" fill="#A7F3D0" fontSize="10" textAnchor="middle">
+          (順流斜向 30°~45° 登陸安全區)
         </text>
 
-        {/* Anchor Tree on Origin Bank */}
-        <circle cx="90" cy="85" r="26" fill="#166534" stroke="#4ADE80" strokeWidth="2" />
-        <text x="90" y="90" fill="#FFFFFF" fontSize="11" fontWeight="bold" textAnchor="middle">
-          出發主錨點
+        {/* Anchor Tree on Origin Bank (High Upstream y=100) */}
+        <circle cx="100" cy="110" r="24" fill="#166534" stroke="#4ADE80" strokeWidth="2" />
+        <text x="100" y="114" fill="#FFFFFF" fontSize="11" fontWeight="bold" textAnchor="middle">
+          上游主錨點
         </text>
 
-        {/* Far Bank Landing Point */}
-        <circle cx="810" cy="270" r="28" fill="#166534" stroke="#4ADE80" strokeWidth="2" />
-        <text x="810" y="265" fill="#FFFFFF" fontSize="11" fontWeight="bold" textAnchor="middle">
-          對岸接應站
+        {/* Far Bank Landing Point (Low Downstream y=310) */}
+        <circle cx="790" cy="310" r="26" fill="#166534" stroke="#4ADE80" strokeWidth="2" />
+        <text x="790" y="305" fill="#FFFFFF" fontSize="11" fontWeight="bold" textAnchor="middle">
+          下游接應站
         </text>
-        <text x="810" y="285" fill="#A7F3D0" fontSize="10" textAnchor="middle">
-          (高位乾燥安全區)
+        <text x="790" y="323" fill="#A7F3D0" fontSize="10" textAnchor="middle">
+          (低位乾燥安全區)
         </text>
+
+        {/* Death-V Danger Warning Comparison Line (Dashed Red Horizontal Line across) */}
+        <g opacity="0.85">
+          <line x1="220" y1="130" x2="680" y2="130" stroke="#EF4444" strokeWidth="2" strokeDasharray="5 4" />
+          <path d="M220 130 Q450 220 680 130" stroke="#EF4444" strokeWidth="2.5" strokeDasharray="4 3" fill="none" />
+          <rect x="330" y="70" width="240" height="38" rx="6" fill="#450A0A" stroke="#EF4444" strokeWidth="1.2" />
+          <text x="450" y="86" fill="#FCA5A5" fontSize="10" fontWeight="bold" textAnchor="middle">
+            🛑 嚴禁平行/垂直拉死繩 (死亡V字夾殺陷阱)
+          </text>
+          <text x="450" y="100" fill="#FECACA" fontSize="9" textAnchor="middle">
+            水流在中央向下重壓，張力暴增數倍且完全拉不動
+          </text>
+        </g>
 
         {/* STAGE 1 RENDERING: 出發岸裝備繫繩 */}
         {currentStage === 1 && (

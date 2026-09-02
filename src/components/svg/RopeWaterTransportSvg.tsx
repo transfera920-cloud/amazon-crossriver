@@ -21,30 +21,42 @@ export const RopeWaterTransportSvg: React.FC<SvgProps> = ({ className = 'w-full 
         ▲ 上游 (UPSTREAM)
       </text>
 
-      {/* Origin Bank (Left) */}
-      <rect x="0" y="0" width="180" height="450" fill="#1B261D" />
-      <text x="90" y="30" fill="#10B981" fontSize="13" fontWeight="bold" textAnchor="middle">出發岸 (放繩控制)</text>
+      {/* Origin Bank (Left - UPSTREAM HIGHER POSITION) */}
+      <rect x="0" y="0" width="200" height="450" fill="#1B261D" />
+      <rect x="15" y="15" width="170" height="38" rx="6" fill="#064E3B" stroke="#10B981" strokeWidth="1.2" />
+      <text x="100" y="32" fill="#4ADE80" fontSize="12" fontWeight="bold" textAnchor="middle">【出發岸】上游高位</text>
+      <text x="100" y="46" fill="#A7F3D0" fontSize="9" textAnchor="middle">(放繩控制端／主錨點)</text>
 
       {/* Operator on Origin Bank */}
-      <circle cx="120" cy="140" r="16" fill="#FBBF24" />
-      <line x1="120" y1="156" x2="120" y2="220" stroke="#FBBF24" strokeWidth="7" strokeLinecap="round" />
-      <text x="120" y="245" fill="#FDE68A" fontSize="11" fontWeight="bold" textAnchor="middle">出發放繩員</text>
-      <text x="120" y="260" fill="#94A3B8" fontSize="9" textAnchor="middle">(半扣制動放繩)</text>
+      <circle cx="120" cy="120" r="16" fill="#FBBF24" />
+      <line x1="120" y1="136" x2="120" y2="195" stroke="#FBBF24" strokeWidth="7" strokeLinecap="round" />
+      <text x="120" y="215" fill="#FDE68A" fontSize="11" fontWeight="bold" textAnchor="middle">出發放繩員</text>
+      <text x="120" y="230" fill="#94A3B8" fontSize="9" textAnchor="middle">(半扣制動勻速放繩)</text>
 
-      {/* Far Bank (Right) */}
-      <rect x="620" y="0" width="180" height="450" fill="#1B261D" />
-      <text x="710" y="30" fill="#10B981" fontSize="13" fontWeight="bold" textAnchor="middle">對岸安全區 (接應)</text>
+      {/* Far Bank (Right - DOWNSTREAM LOWER POSITION) */}
+      <rect x="600" y="0" width="200" height="450" fill="#1B261D" />
+      <rect x="615" y="15" width="170" height="38" rx="6" fill="#064E3B" stroke="#10B981" strokeWidth="1.2" />
+      <text x="700" y="32" fill="#4ADE80" fontSize="12" fontWeight="bold" textAnchor="middle">【目標對岸】下游低位</text>
+      <text x="700" y="46" fill="#A7F3D0" fontSize="9" textAnchor="middle">(順流 30°~45° 接應安全區)</text>
 
-      {/* Receiver on Far Bank with long pole/hand */}
-      <circle cx="680" cy="280" r="16" fill="#10B981" />
-      <line x1="680" y1="296" x2="680" y2="360" stroke="#10B981" strokeWidth="7" strokeLinecap="round" />
-      <text x="680" y="260" fill="#A7F3D0" fontSize="11" fontWeight="bold" textAnchor="middle">對岸接應員</text>
-      <text x="680" y="390" fill="#86EFAC" fontSize="9" textAnchor="middle">持杖接引拉上岸</text>
+      {/* Receiver on Far Bank (Low Position y=300) */}
+      <circle cx="670" cy="300" r="16" fill="#10B981" />
+      <line x1="670" y1="316" x2="670" y2="375" stroke="#10B981" strokeWidth="7" strokeLinecap="round" />
+      <text x="670" y="280" fill="#A7F3D0" fontSize="11" fontWeight="bold" textAnchor="middle">對岸接應員</text>
+      <text x="670" y="395" fill="#86EFAC" fontSize="9" textAnchor="middle">持杖接引拉上高處</text>
 
-      {/* Rope from Origin Bank to Floating Pack */}
-      <path d="M120 140 Q 280 160 460 250" stroke="#F59E0B" strokeWidth="4.5" fill="none" />
-      <text x="270" y="170" fill="#FDE68A" fontSize="11" fontWeight="bold" textAnchor="middle">
-        繩索張力（控制方向與速度）
+      {/* Death-V Hazard Warning Line */}
+      <g opacity="0.8">
+        <line x1="200" y1="120" x2="600" y2="120" stroke="#EF4444" strokeWidth="1.5" strokeDasharray="4 3" />
+        <text x="400" y="112" fill="#FCA5A5" fontSize="9" fontWeight="bold" textAnchor="middle">
+          🛑 嚴禁水平拉死繩（中央水壓下拉會形成致命死亡 V 夾殺）
+        </text>
+      </g>
+
+      {/* Rope from Origin Bank (High) to Floating Pack (Mid-Low) */}
+      <path d="M120 120 Q 280 145 450 250" stroke="#F59E0B" strokeWidth="4.5" fill="none" />
+      <text x="260" y="160" fill="#FDE68A" fontSize="10" fontWeight="bold" textAnchor="middle">
+        斜向鐘擺導引張力（避開死亡V）
       </text>
 
       {/* Floating Pack (Kite principle in water) */}
