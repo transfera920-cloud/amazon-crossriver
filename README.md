@@ -15,11 +15,10 @@ npm run dev
 npm run build
 ```
 
-- **輸出目錄**：`dist`
+- **輸出目錄**：`dist/chapter19`
 
-## Cloudflare Pages 部署設定
+## Cloudflare Workers Builds 部署設定
 
-- **Framework preset**: None / Vite
 - **Build command**: `npm run build`
-- **Build output directory**: `dist`
+- **Output directory**: `dist` (搭配 `wrangler.jsonc` 靜態資產目錄 `./dist`)
 - **Node.js Version**: `>= 20`

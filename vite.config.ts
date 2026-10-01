@@ -38,7 +38,8 @@ export default defineConfig({
   base: '/chapter19/',
   plugins: [react(), tailwindcss(), staticPrerenderPlugin()],
   build: {
-    outDir: 'dist',
+    outDir: 'dist/chapter19',
+    emptyOutDir: true,
   },
   server: {
     port: 3000,
