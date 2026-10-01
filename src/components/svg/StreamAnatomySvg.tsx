@@ -8,11 +8,12 @@ interface SvgProps {
 export const StreamAnatomySvg: React.FC<SvgProps> = ({ className = 'w-full h-auto', showLabels = true }) => {
   return (
     <svg
+      role="img"
+      aria-label="溪流結構全景圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="山區溪流結構與斷面示意圖"
     >
       <defs>
         <linearGradient id="bankGrad" x1="0" y1="0" x2="0" y2="1">

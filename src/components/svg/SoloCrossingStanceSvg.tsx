@@ -7,11 +7,12 @@ interface SvgProps {
 export const SoloCrossingStanceSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="基本徒手渡溪身體姿態與三角支撐圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="基本徒手渡溪身體姿態與三角支撐圖"
     >
       <rect width="800" height="450" fill="#0A0F14" rx="12" />
 

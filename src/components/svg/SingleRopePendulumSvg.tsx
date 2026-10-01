@@ -7,11 +7,12 @@ interface SvgProps {
 export const SingleRopePendulumSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="單繩鐘擺橫渡力學與弧形運動軌跡圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="單繩鐘擺橫渡力學與弧形運動軌跡圖"
     >
       <rect width="800" height="450" fill="#090E13" rx="12" />
 

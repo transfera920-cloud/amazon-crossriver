@@ -7,11 +7,12 @@ interface SvgProps {
 export const SafeCrossingPositionSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="理想過溪點地形示意圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="安全渡溪位置選擇圖：寬緩淺優於窄急深"
     >
       <rect width="800" height="450" fill="#0C1217" rx="12" />
 

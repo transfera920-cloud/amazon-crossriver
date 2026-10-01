@@ -7,11 +7,12 @@ interface SvgProps {
 export const PendulumLeadSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="鐘擺式先鋒渡溪作業圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="鐘擺式先鋒渡溪作業圖"
     >
       <rect width="800" height="450" fill="#090E13" rx="12" />
 

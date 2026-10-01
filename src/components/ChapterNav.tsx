@@ -26,7 +26,7 @@ export const ChapterNav: React.FC<ChapterNavProps> = ({
         <div className="flex items-center gap-2.5">
           <Award className="w-5 h-5 text-emerald-400" />
           <div>
-            <div className="text-xs font-bold text-slate-200">全套 24 篇完整教案</div>
+            <div className="text-xs font-bold text-slate-200">全套 20 篇完整教案</div>
             <div className="text-[11px] text-slate-400">
               進度：{completedChapters.length} / {CHAPTERS_DATA.length} 完成
             </div>
@@ -114,6 +114,7 @@ export const ChapterNav: React.FC<ChapterNavProps> = ({
                   onToggleComplete(chapter.id);
                 }}
                 className="p-1 text-slate-500 hover:text-emerald-400 transition-colors cursor-pointer flex-shrink-0"
+                aria-label={isDone ? `標記第${chapter.id}章為未讀` : `標記第${chapter.id}章為已學會`}
                 title={isDone ? '標記為未讀' : '標記為已學會'}
               >
                 <CheckCircle2

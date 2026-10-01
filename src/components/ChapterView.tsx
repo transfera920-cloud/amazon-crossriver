@@ -10,7 +10,6 @@ import {
   ChevronRight,
   Sparkles,
   Flame,
-  Info,
   ListOrdered,
   FileText,
 } from 'lucide-react';
@@ -66,9 +65,10 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
           </div>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight leading-tight">
+        {/* Section Heading: h2 */}
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight leading-tight">
           {chapter.title}
-        </h1>
+        </h2>
 
         {/* Core Message Callout Box */}
         <div className="p-4 rounded-xl bg-gradient-to-br from-amber-950/40 to-slate-900 border border-amber-500/30 space-y-2">
@@ -168,6 +168,7 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenDiagramModal(chapter.diagramId!)}
+                  aria-label={`放大檢視${chapter.diagramTitle || '圖解'}`}
                   className="flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 bg-emerald-950/50 hover:bg-emerald-900/60 px-2.5 py-1.5 rounded-lg border border-emerald-500/30 transition-all cursor-pointer"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
@@ -186,10 +187,10 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
           )}
 
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-emerald-400 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-emerald-400 flex items-center gap-2">
               <CheckCircle className="w-5 h-5" />
               實務操作與判斷關鍵步驟
-            </h2>
+            </h3>
             <div className="space-y-3">
               {chapter.actionPoints.map((point, pIdx) => (
                 <div
@@ -213,9 +214,9 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {activeTab === 'diagram' && chapter.diagramId && (
         <div className="space-y-6">
           <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-            <h3 className="text-lg font-bold text-sky-400">
+            <h4 className="text-lg font-bold text-sky-400">
               {chapter.diagramTitle || DIAGRAM_REGISTRY[chapter.diagramId]?.title}
-            </h3>
+            </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
               {chapter.diagramDescription || DIAGRAM_REGISTRY[chapter.diagramId]?.description}
             </p>
@@ -234,10 +235,10 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {/* TAB 3: Common Mistakes */}
       {activeTab === 'mistakes' && (
         <div className="space-y-4">
-          <h2 className="text-lg font-bold text-amber-400 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-amber-400 flex items-center gap-2">
             <AlertOctagon className="w-5 h-5" />
             常見致命錯誤與認知陷阱
-          </h2>
+          </h3>
           <div className="space-y-3">
             {chapter.commonMistakes.map((mistake, mIdx) => (
               <div
@@ -259,10 +260,10 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {/* TAB 4: Prohibitions */}
       {activeTab === 'prohibitions' && (
         <div className="space-y-4">
-          <h2 className="text-lg font-bold text-red-400 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-red-400 flex items-center gap-2">
             <Flame className="w-5 h-5 text-red-500 animate-pulse" />
             嚴格禁止事項 (CRITICAL PROHIBITIONS)
-          </h2>
+          </h3>
           <div className="space-y-3">
             {chapter.prohibitions.map((prob, pIdx) => (
               <div
@@ -282,9 +283,9 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
       {/* TAB 5: Detailed Content */}
       {activeTab === 'detailed' && chapter.detailedContent && (
         <div className="space-y-6 bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
-          <h2 className="text-xl font-bold text-purple-300">
+          <h3 className="text-xl font-bold text-purple-300">
             {chapter.detailedContent.subtitle}
-          </h2>
+          </h3>
           <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
             {chapter.detailedContent.paragraphs.map((p, idx) => (
               <p key={idx}>{p}</p>
@@ -293,9 +294,9 @@ export const ChapterView: React.FC<ChapterViewProps> = ({
 
           {chapter.detailedContent.bulletLists?.map((list, lIdx) => (
             <div key={lIdx} className="space-y-2.5 p-4 rounded-xl bg-slate-950 border border-slate-800">
-              <h3 className="text-xs font-bold text-purple-400 uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-purple-400 uppercase tracking-wider">
                 {list.title}
-              </h3>
+              </h4>
               <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
                 {list.items.map((it, itIdx) => (
                   <li key={itIdx} className="flex items-start gap-2">

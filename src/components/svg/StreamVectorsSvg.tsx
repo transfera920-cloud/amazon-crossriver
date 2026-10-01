@@ -7,11 +7,12 @@ interface SvgProps {
 export const StreamVectorsSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="水流力學與推力向量圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="水流推力、浮力與人體重心力學解析"
     >
       <rect width="800" height="450" fill="#0A0F14" rx="12" />
 

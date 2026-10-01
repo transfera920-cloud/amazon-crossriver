@@ -47,6 +47,7 @@ export const OneMinuteChecklistModal: React.FC<ChecklistModalProps> = ({ isOpen,
           <button
             type="button"
             onClick={onClose}
+            aria-label="關閉1分鐘檢核表"
             className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />

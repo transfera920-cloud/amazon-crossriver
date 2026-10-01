@@ -55,12 +55,13 @@ export const ActivePackSeparationSvg: React.FC<SvgProps> = ({
 
       {/* Main SVG Visualization */}
       <svg
-        viewBox="0 0 900 500"
+      role="img"
+      aria-label="主動式人包分離 5 畫面全景圖（先運裝備，再渡人）"
+      viewBox="0 0 900 500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
-        aria-label="主動式人包分離｜先運裝備，再渡人"
-      >
+    >
         <defs>
           <linearGradient id="riverWater" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#0369A1" stopOpacity="0.4" />

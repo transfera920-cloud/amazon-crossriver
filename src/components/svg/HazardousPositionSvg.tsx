@@ -7,11 +7,12 @@ interface SvgProps {
 export const HazardousPositionSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="危險渡溪地形與河中島孤立陷阱"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="危險渡溪地形與河中島孤立陷阱"
     >
       <rect width="800" height="450" fill="#0B1015" rx="12" />
 

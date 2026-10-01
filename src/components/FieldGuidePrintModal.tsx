@@ -44,6 +44,7 @@ export const FieldGuidePrintModal: React.FC<FieldGuidePrintModalProps> = ({ isOp
             <button
               type="button"
               onClick={onClose}
+              aria-label="關閉現場速查手冊"
               className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
@@ -57,11 +58,11 @@ export const FieldGuidePrintModal: React.FC<FieldGuidePrintModalProps> = ({ isOp
           <div className="border-b-2 border-emerald-600 pb-4 flex items-start justify-between">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-emerald-500 print:text-emerald-800">
-                亞馬遜國家山岳協會 (ANMA) • 溪水橫渡安全委員會
+                亞馬遜國家山岳協會 (Amazon Alpine Association) • 溪水橫渡安全委員會
               </div>
-              <h1 className="text-xl sm:text-2xl font-black text-slate-100 print:text-black mt-1">
+              <div className="text-xl sm:text-2xl font-black text-slate-100 print:text-black mt-1">
                 登山途中溪水橫渡安全實務現場速查手冊 (Field SOP)
-              </h1>
+              </div>
               <div className="text-xs text-slate-400 print:text-slate-600 mt-1">
                 最高原則：不判斷「現在能不能過」，而是判斷「進去後是否保有安全撤退能力」。
               </div>
@@ -127,11 +128,11 @@ export const FieldGuidePrintModal: React.FC<FieldGuidePrintModalProps> = ({ isOp
             </div>
           </div>
 
-          {/* Section 3: Summary of all 24 chapters */}
+          {/* Section 3: Summary of all 20 chapters */}
           <div className="space-y-2 text-xs">
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-300 print:text-slate-900 flex items-center gap-1.5">
               <BookOpen className="w-4 h-4 text-emerald-400" />
-              【24 篇核心標準教案索引目錄】
+              【20 篇核心標準教案索引目錄】
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
               {CHAPTERS_DATA.map((c) => (
@@ -149,7 +150,7 @@ export const FieldGuidePrintModal: React.FC<FieldGuidePrintModalProps> = ({ isOp
 
           {/* Footer note on print */}
           <div className="text-[10px] text-slate-500 print:text-slate-500 border-t border-slate-800 print:border-slate-300 pt-3 flex justify-between">
-            <span>亞馬遜國家山岳協會 (ANMA) 安全版權所有</span>
+            <span>亞馬遜國家山岳協會 (Amazon Alpine Association) 版權所有</span>
             <span>「有繩 ≠ 可以過」•「先處理裝備，再處理人」</span>
           </div>
         </div>

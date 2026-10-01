@@ -107,6 +107,7 @@ export const RiverScoutingSandboxModal: React.FC<RiverScoutingSandboxModalProps>
           <button
             type="button"
             onClick={onClose}
+            aria-label="關閉地貌沙盒"
             className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
@@ -127,6 +128,8 @@ export const RiverScoutingSandboxModal: React.FC<RiverScoutingSandboxModalProps>
           <div className="relative w-full bg-slate-950 rounded-2xl border border-slate-800 p-2 sm:p-4 overflow-hidden shadow-2xl">
             <svg
               viewBox="0 0 800 450"
+              role="img"
+              aria-label="溪流地形判讀與過溪點選擇實境模擬沙盒"
               className="w-full h-auto select-none rounded-xl"
             >
               <defs>

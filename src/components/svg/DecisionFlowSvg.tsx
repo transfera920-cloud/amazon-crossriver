@@ -7,11 +7,12 @@ interface SvgProps {
 export const DecisionFlowSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="如何選擇渡溪方法決策流程圖"
       viewBox="0 0 900 650"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="如何選擇渡溪方法決策流程圖"
     >
       <rect width="900" height="650" fill="#090E13" rx="14" stroke="#1E293B" strokeWidth="2" />
 

@@ -7,11 +7,12 @@ interface SvgProps {
 export const TeamRolesSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="登山隊伍過溪分工與通訊網絡圖"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="登山隊伍過溪分工與通訊網絡圖"
     >
       <rect width="800" height="450" fill="#0A0F14" rx="12" />
 

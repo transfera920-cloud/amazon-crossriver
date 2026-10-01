@@ -1,83 +1,52 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import fs from 'fs';
 import path from 'path';
-import {defineConfig, Plugin} from 'vite';
+import { defineConfig, Plugin } from 'vite';
+import { CHAPTERS_DATA } from './src/data/curriculumData';
 
-// LINT.IfChange(aistudio_media_plugin)
-function aistudioMediaPlugin(): Plugin {
+function staticPrerenderPlugin(): Plugin {
   return {
-    name: 'vite-plugin-aistudio-media',
-    configureServer(server) {
-      server.middlewares.use((req, res, next) => {
-        if (req.url && req.url.startsWith('/assets/aistudio/')) {
-          const rawPath = req.url.split('?')[0].split('#')[0];
-          try {
-            const decodedPath = decodeURIComponent(rawPath);
-            const relativePath = decodedPath.replace(/^\//, '');
-            const aistudioDir = path.resolve(
-              __dirname,
-              'public',
-              'assets',
-              'aistudio',
-            );
-            const filePath = path.resolve(__dirname, 'public', relativePath);
-            if (
-              filePath.startsWith(aistudioDir + path.sep) &&
-              fs.existsSync(filePath) &&
-              fs.statSync(filePath).isFile()
-            ) {
-              const ext = path.extname(filePath).toLowerCase();
-              const mimeMap: Record<string, string> = {
-                '.jpg': 'image/jpeg',
-                '.jpeg': 'image/jpeg',
-                '.png': 'image/png',
-                '.gif': 'image/gif',
-                '.webp': 'image/webp',
-                '.svg': 'image/svg+xml',
-                '.bmp': 'image/bmp',
-                '.ico': 'image/x-icon',
-                '.mp4': 'video/mp4',
-                '.webm': 'video/webm',
-                '.ogv': 'video/ogg',
-                '.mp3': 'audio/mpeg',
-                '.wav': 'audio/wav',
-                '.ogg': 'audio/ogg',
-                '.pdf': 'application/pdf',
-              };
-              res.setHeader(
-                'Content-Type',
-                mimeMap[ext] || 'application/octet-stream',
-              );
-              res.setHeader('Cache-Control', 'no-cache');
-              fs.createReadStream(filePath).pipe(res);
-              return;
-            }
-          } catch {
-            // Fall through if URI decoding or file access fails
-          }
-        }
-        next();
-      });
+    name: 'static-prerender-plugin',
+    transformIndexHtml(html) {
+      const chaptersListHtml = CHAPTERS_DATA.map((ch) => {
+        return `        <li class="border-b border-slate-850 pb-3">
+          <h2 class="text-base font-bold text-emerald-400">第 ${ch.id} 篇：${ch.title}</h2>
+          <p class="text-sm text-slate-300 mt-1">${ch.coreMessage}</p>
+        </li>`;
+      }).join('\n');
+
+      const fallback = `
+      <div class="static-seo-fallback max-w-4xl mx-auto p-6 space-y-6 text-slate-100">
+        <h1 class="text-2xl font-black text-slate-100">登山途中溪水橫渡安全教案</h1>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          亞馬遜國家山岳協會（Amazon Alpine Association）專業登山途中溪水橫渡安全實務教學系統，涵蓋水況判斷、主動式人包分離、繩索控制與確保、鐘擺式渡溪、撤退機制與決策流程。最高核心原則：登山隊過溪不是判斷「現在能不能過」，而是判斷「現在進去之後，是否仍然保有安全撤退的能力」。
+        </p>
+        <section class="space-y-4">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">【全套 20 篇核心標準教案索引目錄】</div>
+          <ol class="space-y-3">
+${chaptersListHtml}
+          </ol>
+        </section>
+      </div>`;
+
+      return html.replace('<div id="root"></div>', `<div id="root">${fallback}\n    </div>`);
     },
   };
 }
-// LINT.ThenChange(//depot/google3/java/com/google/alkali/boq/makersuite/applet_dev_service/templates/initializers/react_theme/vite.config.ts:aistudio_media_plugin)
 
-export default defineConfig(() => {
-  return {
-    plugins: [react(), tailwindcss(), aistudioMediaPlugin()],
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, '.'),
-      },
+export default defineConfig({
+  base: '/chapter19/',
+  plugins: [react(), tailwindcss(), staticPrerenderPlugin()],
+  build: {
+    outDir: 'dist',
+  },
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '.'),
     },
-    server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
-      hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
-    },
-  };
+  },
 });

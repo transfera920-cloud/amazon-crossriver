@@ -7,11 +7,12 @@ interface SvgProps {
 export const TeamCrossingSvg: React.FC<SvgProps> = ({ className = 'w-full h-auto' }) => {
   return (
     <svg
+      role="img"
+      aria-label="多人協同渡溪陣型圖（並排互挽與三角破水）"
       viewBox="0 0 800 450"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="多人協同渡溪陣型圖（並排互挽與三角破水）"
     >
       <rect width="800" height="450" fill="#0A0F14" rx="12" />
 

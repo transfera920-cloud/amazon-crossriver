@@ -2,5 +2,5 @@
   "name": "亞馬遜國家山岳協會｜登山途中溪水橫渡安全教案",
   "description": "亞馬遜國家山岳協會專業登山途中溪水橫渡安全實務教學系統，涵蓋水況判斷、主動式人包分離、繩索控制與確保、鐘擺式渡溪、撤退機制與決策流程。",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
